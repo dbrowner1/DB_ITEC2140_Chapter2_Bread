@@ -1,52 +1,43 @@
 public class SourdoughBread extends Bread {
-    // Unique instance variables for SourdoughBread
-    private double yeast;
+    // Instance variables for unique properties of Sourdough Bread
     private double ripeSourdoughStarter;
 
     // Constructors
     public SourdoughBread(double flour, double water, double salt, double yeast, double ripeSourdoughStarter) {
-        super(flour, water, salt, 0.0, 0.0); // Assuming no sugar or baking powder for SourdoughBread
-        this.yeast = yeast;
-        this.ripeSourdoughStarter = ripeSourdoughStarter;
-        this.breadName = "Sourdough Bread";
-    }
-
-    // Getters, setters, toString method, recipe method, and other methods you want to include
-    public double getYeast() {
-        return yeast;
-    }
-
-    public void setYeast(double yeast) {
-        this.yeast = yeast;
-    }
-
-    public double getRipeSourdoughStarter() {
-        return ripeSourdoughStarter;
-    }
-
-    public void setRipeSourdoughStarter(double ripeSourdoughStarter) {
+        super(flour, water, salt, yeast, "Sourdough Bread", "not baked", "Mix, make dough, bulk rise, stretch and fold, cut and shape, second rise, preheat oven, spray with water, bake, cool");
         this.ripeSourdoughStarter = ripeSourdoughStarter;
     }
 
+    // Override getIngredients method
     @Override
-    public String toString() {
-        return breadName + ": " + super.toString() +
-                String.format(", %.2f tsps of yeast, %.2f cup of ripe sourdough starter", yeast, ripeSourdoughStarter);
+    public String getIngredients() {
+        return String.format("%.2f cups of flour\n%.2f cups of water\n%.2f tsps of salt\n%.2f tsp of yeast\n%.2f cup of ripe sourdough starter",
+                getFlour(), getWater(), getSalt(), getYeast(), ripeSourdoughStarter);
     }
 
-    // Recipe method for SourdoughBread
-    public void recipe() {
-        System.out.println("A recipe of " + breadName + ":");
-        System.out.println("1. Mix flour, water, salt, yeast, and ripe sourdough starter.");
-        System.out.println("2. Make the dough");
-        System.out.println("3. Bulk Rise");
-        System.out.println("4. Stretch and fold the dough");
-        System.out.println("5. Cut and shape the dough");
-        System.out.println("6. Second rise");
-        System.out.println("7. Preheat the oven to 450°F towards the tail end of the second rise.");
-        System.out.println("8. Spray the loaf with lukewarm water.");
-        System.out.println("9. Bake the bread at 400°F for 20 minutes, until deep golden brown.");
-        System.out.println("10. Remove the bread from the oven.");
-        System.out.println("11. Let the bread cool until good to eat.");
+    public double getSalt() {
+        return 0;
+    }
+
+    public double getYeast() {
+        return 0;
+    }
+
+    public double getWater() {
+        return 0;
+    }
+
+    public double getFlour() {
+        return 0;
+    }
+
+    // Override recipe method
+    @Override
+    public String recipe() {
+        return "1. Mix flour, water, salt, baking powder, yeast, and ripe sourdough starter.\n" +
+                "2. Make the dough\n3. Bulk Rise\n4. Stretch and fold the dough\n5. Cut and shape the dough\n" +
+                "6. Second rise\n7. Preheat the oven to 450°F towards the tail end of the second rise.\n" +
+                "8. Spray the loaf with lukewarm water.\n9. Bake the bread at 400°F for 20 minutes, until deep golden brown.\n" +
+                "10. Remove the bread from the oven.\n11. Let the bread cool until good to eat.";
     }
 }
